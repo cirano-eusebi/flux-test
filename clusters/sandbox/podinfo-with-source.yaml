@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: podinfo-with-source-namespace
   interval: 2m0s
-  path: ./kustomization
+  path: ./kustomize
   prune: true
   sourceRef:
     kind: GitRepository
