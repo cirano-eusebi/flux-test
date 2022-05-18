@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 2m0s
-  path: ./kustomizations/create-namespace
+  path: ./overlays/enriched-podinfo
   prune: true
   sourceRef:
     kind: GitRepository
