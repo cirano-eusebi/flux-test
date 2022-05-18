@@ -18,7 +18,10 @@ spec:
     cache: redis-master.redis:6379
     ingress:
       enabled: true
-      hosts:
-        - host: podinfo.sandbox
       annotations:
         kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: podinfo.sandbox
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
