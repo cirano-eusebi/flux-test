@@ -12,3 +12,12 @@ spec:
     kind: GitRepository
     name: podinfo
   targetNamespace: podinfo
+  resources:
+    - |-
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name:  podinfo
+        labels:
+          name: podinfo
+          app: podinfo
