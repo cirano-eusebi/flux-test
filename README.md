@@ -29,7 +29,7 @@ Commit and push (does it need to happen in different steps?)
 Then add the kustomization sync:
 The path depends on where the kustomization.yaml is on the source repo
 The source is the name of the flux source used to find the `what`
-
+The target-namespace needs to exist (at least for GitRepo sources)
 ```
 flux create kustomization podinfo \
   --target-namespace=podinfo \
