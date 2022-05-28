@@ -1,15 +1,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: nginx-ingress-controller
+  name: infrastructure-sources
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: infrastructure
   interval: 2m0s
-  path: ./infrastructure/nginx-ingress-controller
+  path: ./infrastructure-sources
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  targetNamespace: nginx-ingress-controller
+  targetNamespace: flux-system

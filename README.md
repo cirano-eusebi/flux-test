@@ -39,3 +39,8 @@ flux create kustomization podinfo \
   --interval=5m \
   --export > ./clusters/sandbox/podinfo-kustomization.yaml
 ```
+---
+
+I've done some experimentation with the structure of the repo. I find more usefull for all apps to have it's own `flux kustomization` definition in order to keep first-class citzenship (being able to configure sync schedules and dependencies)
+This means that instead of having one `flux kustomization` in the cluster folder + a `k8s kustomization` with all the apps listed outside, I don't use `k8s kustomizations` to group apps/infra. `k8s kustomization` is only used for overlays/ grouping of functionality specific for 1 application.  
+This decision can be troublesome if we wanted to provide cluster wide policies like overriding the container registry for all services or adding labels/annotations globally.
