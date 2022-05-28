@@ -8,6 +8,7 @@ spec:
   dependsOn:
     - name: nginx-ingress-controller
     - name: central-redis
+    - name: app-sources
   interval: 2m0s
   path: ./apps/podinfo-with-helm
   prune: true
