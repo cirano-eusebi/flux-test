@@ -11,5 +11,5 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: infra-catalog
   targetNamespace: redis

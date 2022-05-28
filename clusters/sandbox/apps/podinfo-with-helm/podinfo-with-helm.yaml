@@ -14,5 +14,5 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: app-catalog
   targetNamespace: podinfo-helm
