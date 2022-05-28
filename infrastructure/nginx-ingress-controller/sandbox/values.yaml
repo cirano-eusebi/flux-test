@@ -1,0 +1,4 @@
+# Default values
+# https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+service:
+  type: NodePort

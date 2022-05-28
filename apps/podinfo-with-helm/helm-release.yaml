@@ -21,7 +21,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: podinfo.sandbox
+        - host: podinfo.localdev.me
           paths:
             - path: /
               pathType: ImplementationSpecific

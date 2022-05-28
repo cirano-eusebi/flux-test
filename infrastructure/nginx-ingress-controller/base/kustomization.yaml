@@ -4,3 +4,5 @@ namespace: nginx-ingress-controller
 resources:
   - ../../../kustomizations/create-namespace
   - helm-release.yaml
+configurations:
+  - ../../../kustomizations/configure-helm-values/helm-values-from-kustomization.yaml
