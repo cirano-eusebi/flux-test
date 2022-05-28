@@ -8,8 +8,6 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  secretRef:
-    name: infra-catalog
   url: ssh://git@github.com/cirano-eusebi/flux-test
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
