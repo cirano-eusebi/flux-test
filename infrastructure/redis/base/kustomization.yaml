@@ -4,3 +4,5 @@ namespace: redis
 resources:
   - ../../../kustomizations/create-namespace
   - release.yaml
+configurations:
+  - ../../../kustomizations/configure-helm-values/helm-values-from-kustomization.yaml
