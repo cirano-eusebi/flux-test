@@ -11,9 +11,9 @@ ingress:
           pathType: ImplementationSpecific
 resources:
   limits:
-    cpu: 100m
+    cpu: 10m
   requests:
-    cpu: 1m
+    cpu: 10m
     memory: 16Mi
 hpa:
   enabled: true
