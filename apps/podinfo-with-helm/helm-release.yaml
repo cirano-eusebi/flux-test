@@ -14,15 +14,3 @@ spec:
         name: podinfo
         namespace: flux-system
   interval: 5m
-  values:
-    cache: redis-master.redis:6379
-    ingress:
-      enabled: true
-      className: nginx
-      annotations:
-        kubernetes.io/ingress.class: nginx
-      hosts:
-        - host: podinfo.ceusebi.ddnsfree.com
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
