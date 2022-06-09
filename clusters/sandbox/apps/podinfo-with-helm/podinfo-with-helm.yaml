@@ -6,9 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: nginx-ingress-controller
-    - name: central-redis
     - name: app-sources
+    - name: central-redis
+    - name: nginx-ingress-controller
+    - name: cert-manager
   interval: 2m0s
   path: ./apps/podinfo-with-helm
   prune: true

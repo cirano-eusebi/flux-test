@@ -1,19 +1,26 @@
+# Values from:
+# https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
 cache: redis-master.redis:6379
 ingress:
   enabled: true
   className: nginx
   annotations:
     kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
   hosts:
     - host: podinfo.ceusebi.ddnsfree.com
       paths:
         - path: /
           pathType: ImplementationSpecific
+  tls:
+   - secretName: podinfo-tls
+     hosts:
+       - podinfo.ceusebi.ddnsfree.com
 resources:
   limits:
     cpu: 10m
   requests:
-    cpu: 10m
+    cpu: 1m
     memory: 16Mi
 hpa:
   enabled: true
