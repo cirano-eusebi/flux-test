@@ -1,0 +1,16 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: infrastructure-sources
+    - name: nginx-ingress-controller
+  interval: 2m0s
+  path: ./infrastructure/cert-manager/sandbox
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: infra-catalog
+  targetNamespace: cert-manager

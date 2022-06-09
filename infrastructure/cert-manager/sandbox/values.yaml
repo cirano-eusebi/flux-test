@@ -1,0 +1,7 @@
+# Default values
+# https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
+installCRDs: true
+ingressShim:
+  defaultIssuerGroup: cert-manager.io
+  defaultIssuerKind: ClusterIssuer
+  defaultIssuerName: letsencrypt-prod
