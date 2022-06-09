@@ -4,7 +4,5 @@ namespace: cert-manager
 resources:
   - ../../../kustomizations/create-namespace
   - helm-release.yaml
-  - staging-issuer.yaml
-  - prod-issuer.yaml
 configurations:
   - ../../../kustomizations/configure-helm-values/helm-values-from-kustomization.yaml
