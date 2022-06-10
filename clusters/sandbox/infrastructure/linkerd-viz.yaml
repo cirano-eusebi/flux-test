@@ -1,21 +1,22 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: nginx-ingress-controller
+  name: linkerd-viz
   namespace: flux-system
 spec:
   dependsOn:
     - name: infrastructure-sources
+    - name: linkerd
   interval: 2m0s
-  path: ./infrastructure/nginx-ingress-controller/sandbox
+  path: ./infrastructure/linkerd-viz/sandbox
   prune: true
   sourceRef:
     kind: GitRepository
     name: infra-catalog
-  targetNamespace: nginx-ingress-controller
+  targetNamespace: linkerd-viz
   validation: client
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: nginx
-      namespace: nginx-ingress-controller
+      name: linkerd-viz
+      namespace: linkerd-viz

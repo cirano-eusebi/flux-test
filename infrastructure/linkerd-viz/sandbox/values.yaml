@@ -1,0 +1,3 @@
+# Full list of values in
+# https://github.com/linkerd/linkerd2/blob/main/viz/charts/linkerd-viz/values.yaml
+installNamespace: false

@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: linkerd-viz
+resources:
+  - ../base
+configMapGenerator:
+  - name: linkerd-viz-values
+    files:
+      - values.yaml=values.yaml
+patches:
+  - patch: |
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: linkerd-viz
+      spec:
+        valuesFrom:
+          - kind: ConfigMap
+            name: linkerd-viz-values
+  - patch: |
+      kind: Namespace
+      apiVersion: v1
+      metadata:
+        name: default
+        labels:
+          linkerd.io/extension: viz
+        annotations:
+          linkerd.io/inject: enabled
+          config.linkerd.io/proxy-await: "enabled"
