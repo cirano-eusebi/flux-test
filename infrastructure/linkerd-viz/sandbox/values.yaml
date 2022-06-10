@@ -2,3 +2,4 @@
 # https://github.com/linkerd/linkerd2/blob/main/viz/charts/linkerd-viz/values.yaml
 dashboard:
   enforcedHostRegexp: ^linkerd\.ceusebi\.ddnsfree\.com$
+jaegerUrl: jaeger.linkerd-jaeger:16686

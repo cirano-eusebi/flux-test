@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: linkerd-jaeger
 resources:
   - ../base
-  - ui-ingress.yaml
 configMapGenerator:
   - name: linkerd-jaeger-values
     files:

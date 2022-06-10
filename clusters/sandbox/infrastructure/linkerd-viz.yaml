@@ -7,6 +7,7 @@ spec:
   dependsOn:
     - name: infrastructure-sources
     - name: linkerd
+    - name: linkerd-jaeger
     - name: nginx-ingress-controller
   interval: 1m0s
   timeout: 3m
