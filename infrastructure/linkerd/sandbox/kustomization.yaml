@@ -1,0 +1,32 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: linkerd
+resources:
+  - ../base
+  - certs.yaml
+configMapGenerator:
+  - name: linkerd-values
+    files:
+      - values.yaml=values.yaml
+patches:
+  - patch: |
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: linkerd
+      spec:
+        valuesFrom:
+          - kind: ConfigMap
+            name: linkerd-values
+          - kind: Secret
+            name: linkerd-certs
+            valuesKey: ca.crt
+            targetPath: identityTrustAnchorsPEM
+          - kind: Secret
+            name: linkerd-certs
+            valuesKey: issuer.crt
+            targetPath: identity.issuer.tls.crtPEM
+          - kind: Secret
+            name: linkerd-certs
+            valuesKey: issuer.key
+            targetPath: identity.issuer.tls.keyPEM

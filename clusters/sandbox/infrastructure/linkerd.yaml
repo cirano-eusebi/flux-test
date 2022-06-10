@@ -1,0 +1,15 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: linkerd
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: infrastructure-sources
+  interval: 2m0s
+  path: ./infrastructure/linkerd/sandbox
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: infra-catalog
+  targetNamespace: linkerd
