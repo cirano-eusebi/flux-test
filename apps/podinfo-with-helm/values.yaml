@@ -8,6 +8,7 @@ ingress:
   className: nginx
   annotations:
     kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/enable-opentracing: "true"
   hosts:
     - host: podinfo.ceusebi.ddnsfree.com
       paths:

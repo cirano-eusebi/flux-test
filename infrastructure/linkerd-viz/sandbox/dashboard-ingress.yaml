@@ -4,6 +4,7 @@ metadata:
   name: dashboard-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/enable-opentracing: "true"
 spec:
   ingressClassName: nginx
   rules:
