@@ -3,6 +3,12 @@ kind: Kustomization
 resources:
   - github.com/BuoyantIO/emojivoto/kustomize/deployment
   - ingress.yaml
+vars:
+- name: NAMESPACE
+  objref:
+    apiVersion: apps/v1
+    kind: Namespace
+    name: emojivoto
 patches:
   - patch: |
       apiVersion: v1
@@ -11,3 +17,33 @@ patches:
         name: emojivoto
         annotations:
           linkerd.io/inject: enabled
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: vote-bot
+        namespace: emojivoto
+      spec:
+        template:
+          spec:
+            containers:
+              - name: vote-bot
+                env: 
+                  - name: WEB_HOST
+                    value: web-svc.$(NAMESPACE):80
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: web
+        namespace: emojivoto
+      spec:
+        template:
+          spec:
+            containers:
+              - name: web-svc
+                env: 
+                  - name: EMOJISVC_HOST
+                    value: emoji-svc.$(NAMESPACE):8080
+                  - name: VOTINGSVC_HOST
+                    value: voting-svc.$(NAMESPACE):8080
