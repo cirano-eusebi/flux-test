@@ -8,3 +8,5 @@ controller:
   config:
     enable-opentracing: "true"
     zipkin-collector-host: collector.linkerd-jaeger
+  podAnnotations:
+    linkerd.io/inject: enabled
