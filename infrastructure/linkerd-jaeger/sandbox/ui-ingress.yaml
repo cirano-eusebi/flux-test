@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ui-ingress
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/enable-opentracing: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: jaeger.ceusebi.ddnsfree.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service: 
+              name: jaeger
+              port: 
+                name: ui
+  tls:
+    - secretName: jaeger-cert
+      hosts:
+        - jaeger.ceusebi.ddnsfree.com
