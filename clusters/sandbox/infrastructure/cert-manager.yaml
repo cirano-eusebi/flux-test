@@ -6,7 +6,7 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure-sources
-  interval: 2m0s
+  interval: 1m0s
   path: ./infrastructure/cert-manager/sandbox
   prune: true
   sourceRef:
@@ -30,7 +30,7 @@ spec:
     - name: infrastructure-sources
     - name: nginx-ingress-controller
     - name: cert-manager
-  interval: 2m0s
+  interval: 1m0s
   path: ./infrastructure/cert-manager/letsencrypt-issuers
   prune: true
   sourceRef:

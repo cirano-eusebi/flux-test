@@ -16,7 +16,7 @@ metadata:
   name: app-sources
   namespace: flux-system
 spec:
-  interval: 2m0s
+  interval: 1m0s
   path: ./app-sources
   prune: true
   sourceRef:

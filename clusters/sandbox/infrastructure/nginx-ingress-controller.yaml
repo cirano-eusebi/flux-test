@@ -6,7 +6,7 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure-sources
-  interval: 2m0s
+  interval: 1m0s
   path: ./infrastructure/nginx-ingress-controller/sandbox
   prune: true
   sourceRef:

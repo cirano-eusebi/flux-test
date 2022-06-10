@@ -7,7 +7,7 @@ spec:
   dependsOn:
     - name: infrastructure-sources
     - name: linkerd
-  interval: 2m0s
+  interval: 1m0s
   path: ./infrastructure/linkerd-viz/sandbox
   prune: true
   sourceRef:
