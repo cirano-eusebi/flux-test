@@ -1,11 +1,10 @@
 # Default values
-# https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
-service:
-  type: NodePort
-  nodePorts:
-    http: 30080
-    https: 30443
+# https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml
 controller:
+  service:
+    nodePorts:
+      http: "30080"
+      https: "30443"
   config:
     enable-opentracing: "true"
     zipkin-collector-host: collector.linkerd-jaeger
