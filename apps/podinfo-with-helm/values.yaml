@@ -11,7 +11,7 @@ ingress:
     - host: podinfo.ceusebi.ddnsfree.com
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
    - secretName: podinfo-tls
      hosts:

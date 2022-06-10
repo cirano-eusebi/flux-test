@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: linkerd-viz
 resources:
   - ../base
+  - dashboard-ingress.yaml
 configMapGenerator:
   - name: linkerd-viz-values
     files:

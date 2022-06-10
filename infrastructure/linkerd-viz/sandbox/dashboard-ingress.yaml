@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: linkerd.ceusebi.ddnsfree.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service: 
+              name: web
+              port: 
+                name: http
+  tls:
+    - secretName: linkerd-cert
+      hosts:
+        - linkerd.ceusebi.ddnsfree.com
