@@ -6,6 +6,7 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure-sources
+    - name: linkerd
   interval: 1m0s
   path: ./infrastructure/cert-manager/sandbox
   prune: true
