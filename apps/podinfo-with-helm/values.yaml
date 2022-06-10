@@ -1,6 +1,8 @@
 # Values from:
 # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
-cache: redis-master.redis:6379
+cache: tcp://redis-master.redis:6379
+redis:
+  enabled: false
 ingress:
   enabled: true
   className: nginx
