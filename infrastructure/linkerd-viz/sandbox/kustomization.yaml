@@ -18,13 +18,3 @@ patches:
         valuesFrom:
           - kind: ConfigMap
             name: linkerd-viz-values
-  - patch: |
-      kind: Namespace
-      apiVersion: v1
-      metadata:
-        name: default
-        labels:
-          linkerd.io/extension: viz
-        annotations:
-          linkerd.io/inject: enabled
-          config.linkerd.io/proxy-await: "enabled"

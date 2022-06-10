@@ -11,6 +11,8 @@ spec:
         kind: HelmRepository
         name: linkerd
         namespace: flux-system
+  values:
+    installNamespace: false
   interval: 1h0m0s
   install:
     crds: CreateReplace
