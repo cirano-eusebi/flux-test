@@ -1,0 +1,18 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: emojivoto-with-kustomize
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: app-sources
+    - name: nginx-ingress-controller
+    - name: cert-manager
+    - name: linkerd
+  interval: 2m0s
+  path: ./apps/emojivoto-with-kustomize
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: app-catalog
+  targetNamespace: emojivoto-with-kustomize
