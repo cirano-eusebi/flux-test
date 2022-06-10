@@ -7,6 +7,7 @@ spec:
   dependsOn:
     - name: infrastructure-sources
   interval: 1m0s
+  timeout: 3m
   path: ./infrastructure/nginx-ingress-controller/sandbox
   prune: true
   sourceRef:

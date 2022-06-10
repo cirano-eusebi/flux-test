@@ -9,6 +9,7 @@ spec:
     - name: linkerd
     - name: nginx-ingress-controller
   interval: 1m0s
+  timeout: 3m
   path: ./infrastructure/linkerd-viz/sandbox
   prune: true
   sourceRef:
